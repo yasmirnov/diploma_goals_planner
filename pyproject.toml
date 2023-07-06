@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "diploma-goals-planner"
+version = "0.1.0"
+description = ""
+authors = ["yasmirnov <iaroslav.irnovsm@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
