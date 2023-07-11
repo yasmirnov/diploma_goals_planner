@@ -32,9 +32,9 @@ jobs:
       - name: Copy on server
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.SHH_HOST }}
-          username: ${{ secrets.SHH_USER }}
-          password: ${{ secrets.SHH_PASSWORD }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
           source: "deploy/*"
           target: "diploma_goals_planner"
           scrip_components: 1
