@@ -41,7 +41,7 @@ services:
       run_migrations:
         condition: service_completed_successfully
     ports:
-      - "8000:8000"
+      - "80:80"
     volumes:
       - ./core:/opt/app/core/
       - ./goals_planner:/opt/app/goals_planner/
