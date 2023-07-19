@@ -41,7 +41,7 @@ services:
       run_migrations:
         condition: service_completed_successfully
     ports:
-      - "80:80"
+      - "8000:8000"
     volumes:
       - ./core:/opt/app/core/
       - ./goals_planner:/opt/app/goals_planner/
@@ -54,7 +54,7 @@ services:
       - django_static:/opt/app/static/
 
   frontend:
-    image: sermalenk/skypro-front:lesson-34
+    image: sermalenk/skypro-front:lesson-35
     restart: on-failure
     ports:
       - "80:80"
@@ -64,7 +64,7 @@ services:
       collect_static:
         condition: service_completed_successfully
     volumes:
-      - .deploy/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf
       - django_static:/usr/share/nginx/html/static/
 
 volumes:
