@@ -1,6 +1,7 @@
 **
 
 !core
+!goals
 !goals_planner
 !manage.py
 !poetry.lock
