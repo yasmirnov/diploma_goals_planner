@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "result": [
+    {
+      "update_id": 94458709,
+      "message": {
+        "message_id": 1,
+        "from": {
+          "id": 341281607,
+          "is_bot": false,
+          "first_name": "iaroslav",
+          "last_name": "smirnov",
+          "username": "ismirnow",
+          "language_code": "ru"
+      },
+        "chat": {
+          "id": 341281607,
+          "first_name": "iaroslav",
+          "last_name": "smirnov",
+          "username": "ismirnow",
+          "type": "private"
+        },
+        "date": 1691229798,
+        "text": "/start"
+      }
+    }
+  ]
+}

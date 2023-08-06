@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "result": {
+    "message_id": 4,
+    "from": {
+      "id": 6586339267,
+      "is_bot": true,
+      "first_name": "goals_planner",
+      "username": "goals_planner_bot"
+    },
+    "chat": {
+      "id": 341281607,
+      "first_name": "iaroslav",
+      "last_name": "smirnov",
+      "username": "ismirnow",
+      "type": "private"
+    },
+    "date": 1691230346,
+    "text": "hello"
+  }
+}
