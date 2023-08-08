@@ -9,7 +9,7 @@ from goals.models import GoalCategory, Goal, GoalComment, Board, BoardParticipan
 
 class BoardPermission(IsAuthenticated):
     def has_object_permission(self, request: Request, view: GenericAPIView, obj: Board) -> bool:
-        _filters: dict[str, Any] = {'user': request.user, 'board': obj}
+        _filters: dict[str, Any] = {'user': request.user, 'boards': obj}
         if request.method not in SAFE_METHODS:
             _filters['role'] = BoardParticipant.Role.owner
         return BoardParticipant.objects.filter(**_filters).exists()
@@ -17,7 +17,7 @@ class BoardPermission(IsAuthenticated):
 
 class GoalCategoryPermission(IsAuthenticated):
     def has_object_permission(self, request: Request, view: GenericAPIView, obj: GoalCategory) -> bool:
-        _filters: dict[str, Any] = {'user': request.user, 'board': obj.board}
+        _filters: dict[str, Any] = {'user': request.user, 'boards': obj.board}
         if request.method not in SAFE_METHODS:
             _filters['role__in'] = [BoardParticipant.Role.owner, BoardParticipant.Role.writer]
         return BoardParticipant.objects.filter(**_filters).exists()
@@ -25,7 +25,7 @@ class GoalCategoryPermission(IsAuthenticated):
 
 class GoalPermission(IsAuthenticated):
     def has_object_permission(self, request: Request, view: GenericAPIView, obj: Goal) -> bool:
-        _filters: dict[str, Any] = {'user': request.user, 'board': obj.category.board}
+        _filters: dict[str, Any] = {'user': request.user, 'boards': obj.category.board}
         if request.method not in SAFE_METHODS:
             _filters['role__in'] = [BoardParticipant.Role.owner, BoardParticipant.Role.writer]
         return BoardParticipant.objects.filter(**_filters).exists()

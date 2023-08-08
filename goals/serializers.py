@@ -81,14 +81,14 @@ class GoalSerializer(serializers.ModelSerializer):
 
     def validate_category(self, category: GoalCategory) -> GoalCategory:
         if category.is_deleted:
-            raise ValidationError('Category not exists')
+            raise serializers.ValidationError('Category not exists')
 
         if not BoardParticipant.objects.filter(
                 board_id=category.board_id,
                 user_id=self.context['request'].user.id,
                 role__in=[BoardParticipant.Role.owner, BoardParticipant.Role.writer]
         ).exists():
-            raise PermissionDenied
+            raise PermissionDenied('must be owner or writer in project')
 
         return category
 
